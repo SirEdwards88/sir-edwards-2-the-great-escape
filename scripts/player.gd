@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
+signal state_changed(previous: PlayerState.State, current: PlayerState.State)
+
 @export var tuning: PlayerTuning = preload("res://data/player_tuning.tres")
 
+var state := PlayerState.State.RUN
 var _coyote_timer := 0.0
 var _buffer_timer := 0.0
 
@@ -48,3 +51,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y *= tuning.jump_cut_multiplier
 
 	move_and_slide()
+	_update_state()
+
+func _update_state() -> void:
+	var new_state := PlayerState.from_motion(is_on_floor(), velocity.y)
+	if new_state != state:
+		var previous := state
+		state = new_state
+		state_changed.emit(previous, new_state)
