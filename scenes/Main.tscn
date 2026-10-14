@@ -7,12 +7,15 @@ radius = 16.0
 height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnwvq"]
-size = Vector2(720, 40)
+size = Vector2(1920, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(40, 1080)
 
 [node name="Main" type="Node2D" unique_id=1352038230]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=21430966]
-position = Vector2(180, 100)
+position = Vector2(960, 960)
 script = ExtResource("1_elqb8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1619901469]
@@ -23,7 +26,23 @@ polygon = PackedVector2Array(-16, -24, 16, -24, 16, 24, -16, 24)
 uv = PackedVector2Array(-16, -24, 16, -24, 16, 24, -16, 24)
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=143404135]
-position = Vector2(0, 560)
+position = Vector2(960, 1040)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1247434969]
 shape = SubResource("RectangleShape2D_qnwvq")
+
+[node name="PlaceholderVisual" type="Polygon2D" parent="Ground" unique_id=1873020441]
+color = Color(0.32, 0.33, 0.36, 1)
+polygon = PackedVector2Array(-960, -40, 960, -40, 960, 40, -960, 40)
+
+[node name="WallLeft" type="StaticBody2D" parent="." unique_id=1730459115]
+position = Vector2(-20, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=1998214706]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="WallRight" type="StaticBody2D" parent="." unique_id=1530267893]
+position = Vector2(1940, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=1115820367]
+shape = SubResource("RectangleShape2D_wall")
