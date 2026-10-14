@@ -1,0 +1,144 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" uid="uid://cxtju2u0rcpj3" path="res://scripts/player.gd" id="1_player"]
+[ext_resource type="Resource" path="res://data/tuning/player_tuning_180.tres" id="2_tuning"]
+[ext_resource type="Script" path="res://scripts/kill_zone.gd" id="3_kill"]
+
+[sub_resource type="CapsuleShape2D" id="Capsule_player"]
+radius = 60.0
+height = 180.0
+
+[sub_resource type="RectangleShape2D" id="Rect_seg01"]
+size = Vector2(2520.0, 1080.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_seg02"]
+size = Vector2(1170.0, 1080.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_seg03"]
+size = Vector2(900.0, 1080.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_seg04"]
+size = Vector2(720.0, 1260.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_seg05"]
+size = Vector2(1080.0, 1404.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_seg06"]
+size = Vector2(1440.0, 1404.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_seg07"]
+size = Vector2(1440.0, 1080.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_wall"]
+size = Vector2(180.0, 5400.0)
+
+[sub_resource type="RectangleShape2D" id="Rect_kill"]
+size = Vector2(14400.0, 360.0)
+
+[node name="ScaleTest180" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(360.0, -94.0)
+script = ExtResource("1_player")
+tuning = ExtResource("2_tuning")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("Capsule_player")
+
+[node name="Visual" type="Polygon2D" parent="Player"]
+polygon = PackedVector2Array(-60.0, -90.0, 60.0, -90.0, 60.0, 90.0, -60.0, 90.0)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -216)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0
+
+[node name="Segment01" type="StaticBody2D" parent="."]
+position = Vector2(1260.0, 540.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segment01"]
+shape = SubResource("Rect_seg01")
+
+[node name="PlaceholderVisual" type="Polygon2D" parent="Segment01"]
+color = Color(0.32, 0.33, 0.36, 1)
+polygon = PackedVector2Array(-1260.0, -540.0, 1260.0, -540.0, 1260.0, 540.0, -1260.0, 540.0)
+
+[node name="Segment02" type="StaticBody2D" parent="."]
+position = Vector2(3375.0, 540.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segment02"]
+shape = SubResource("Rect_seg02")
+
+[node name="PlaceholderVisual" type="Polygon2D" parent="Segment02"]
+color = Color(0.32, 0.33, 0.36, 1)
+polygon = PackedVector2Array(-585.0, -540.0, 585.0, -540.0, 585.0, 540.0, -585.0, 540.0)
+
+[node name="Segment03" type="StaticBody2D" parent="."]
+position = Vector2(4950.0, 540.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segment03"]
+shape = SubResource("Rect_seg03")
+
+[node name="PlaceholderVisual" type="Polygon2D" parent="Segment03"]
+color = Color(0.32, 0.33, 0.36, 1)
+polygon = PackedVector2Array(-450.0, -540.0, 450.0, -540.0, 450.0, 540.0, -450.0, 540.0)
+
+[node name="Segment04" type="StaticBody2D" parent="."]
+position = Vector2(5760.0, 450.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segment04"]
+shape = SubResource("Rect_seg04")
+
+[node name="PlaceholderVisual" type="Polygon2D" parent="Segment04"]
+color = Color(0.42, 0.43, 0.47, 1)
+polygon = PackedVector2Array(-360.0, -630.0, 360.0, -630.0, 360.0, 630.0, -360.0, 630.0)
+
+[node name="Segment05" type="StaticBody2D" parent="."]
+position = Vector2(6660.0, 378.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segment05"]
+shape = SubResource("Rect_seg05")
+
+[node name="PlaceholderVisual" type="Polygon2D" parent="Segment05"]
+color = Color(0.42, 0.43, 0.47, 1)
+polygon = PackedVector2Array(-540.0, -702.0, 540.0, -702.0, 540.0, 702.0, -540.0, 702.0)
+
+[node name="Segment06" type="StaticBody2D" parent="."]
+position = Vector2(8640.0, 378.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segment06"]
+shape = SubResource("Rect_seg06")
+
+[node name="PlaceholderVisual" type="Polygon2D" parent="Segment06"]
+color = Color(0.42, 0.43, 0.47, 1)
+polygon = PackedVector2Array(-720.0, -702.0, 720.0, -702.0, 720.0, 702.0, -720.0, 702.0)
+
+[node name="Segment07" type="StaticBody2D" parent="."]
+position = Vector2(10080.0, 540.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segment07"]
+shape = SubResource("Rect_seg07")
+
+[node name="PlaceholderVisual" type="Polygon2D" parent="Segment07"]
+color = Color(0.32, 0.33, 0.36, 1)
+polygon = PackedVector2Array(-720.0, -540.0, 720.0, -540.0, 720.0, 540.0, -720.0, 540.0)
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+position = Vector2(-90.0, -1800.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+shape = SubResource("Rect_wall")
+
+[node name="WallRight" type="StaticBody2D" parent="."]
+position = Vector2(10890.0, -1800.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
+shape = SubResource("Rect_wall")
+
+[node name="KillZone" type="Area2D" parent="."]
+position = Vector2(5400.0, 2520.0)
+script = ExtResource("3_kill")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("Rect_kill")

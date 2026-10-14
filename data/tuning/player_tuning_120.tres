@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerTuning" format=3]
+
+[ext_resource type="Script" path="res://scripts/player_tuning.gd" id="1_tuning"]
+
+[resource]
+script = ExtResource("1_tuning")
+; Escala 120 px: velocidades, aceleraciones y gravedades de la base x 2.5; tiempos sin cambiar.
+max_speed = 750.0
+acceleration = 5500.0
+friction = 6500.0
+air_acceleration = 4000.0
+air_friction = 1750.0
+jump_velocity = -1400.0
+jump_cut_multiplier = 0.45
+coyote_time = 0.1
+jump_buffer_time = 0.12
+gravity_up = 3750.0
+gravity_down = 5750.0
+max_fall_speed = 2750.0
