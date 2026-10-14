@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		_coyote_timer = coyote_time
 	else:
 		_coyote_timer = maxf(_coyote_timer - delta, 0.0)
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("jump"):
 		_buffer_timer = jump_buffer_time
 	else:
 		_buffer_timer = maxf(_buffer_timer - delta, 0.0)
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = minf(velocity.y + g * delta, max_fall_speed)
 
 	# Movimiento horizontal con aceleración y frenada
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("move_left", "move_right")
 	var accel := acceleration if on_floor else air_acceleration
 	var fric := friction if on_floor else air_friction
 	if direction != 0.0:
@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		_coyote_timer = 0.0
 
 	# Salto de altura variable: soltar el botón subiendo lo recorta
-	if Input.is_action_just_released("ui_accept") and velocity.y < 0.0:
+	if Input.is_action_just_released("jump") and velocity.y < 0.0:
 		velocity.y *= jump_cut_multiplier
 
 	move_and_slide()
