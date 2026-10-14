@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Exportaciones y credenciales
+builds/
+export_credentials.cfg
+*.translation
+
+# Temporales y sistema
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
