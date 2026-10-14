@@ -27,7 +27,7 @@ Carpetas: `scenes/` (player, levels, enemies, ui), `scripts/`, `assets/` (sprite
 - Escenas pequeñas y reutilizables, un script por responsabilidad y señales en vez de referencias directas entre nodos.
 - Los autoloads son pocos y solo para estado global (`GameState`, `Phrases`, `AudioBus`). Sin lógica de juego dentro de ellos.
 - Todos los valores de tacto del movimiento (aceleración, fricción, gravedad, fuerza de salto, tiempos de margen) viven en un recurso `PlayerTuning` editable desde el inspector. Nada de números mágicos en el código.
-- Entrada solo mediante el Input Map (`move_left`, `move_right`, `move_up`, `move_down`, `jump`, `glide`; `dash` queda reservada para más adelante). Nunca leas teclas ni botones concretos: tiene que valer igual con teclado y con mando, con zona muerta en los sticks.
+- Entrada solo mediante el Input Map (`move_left`, `move_right`, `move_up`, `move_down`, `jump`, `restart`; `dash` queda reservada para más adelante). Nunca leas teclas ni botones concretos: tiene que valer igual con teclado y con mando, con zona muerta en los sticks.
 - La física va en `_physics_process` y usa `delta`.
 - Lo nuevo va en su propio script o escena; no inflar los existentes.
 

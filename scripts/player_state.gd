@@ -3,9 +3,9 @@ extends RefCounted
 ## Estados del jugador y la regla que decide el estado a partir del movimiento.
 ## Solo describe: no mueve al jugador ni cambia la física.
 
-enum State { RUN, JUMP, FALL, GLIDE, CRASH, VICTORY }
+enum State { RUN, JUMP, FALL, CRASH, VICTORY }
 
-## RUN, JUMP y FALL se deducen del movimiento. GLIDE, CRASH y VICTORY
+## RUN, JUMP y FALL se deducen del movimiento. CRASH y VICTORY
 ## están declarados pero todavía no se activan.
 static func from_motion(on_floor: bool, vertical_velocity: float) -> State:
 	if on_floor:

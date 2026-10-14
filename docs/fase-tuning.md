@@ -11,8 +11,8 @@ Centralizar los parámetros de tacto del movimiento del jugador en un recurso `P
 
 ## Fuera de alcance
 - Resolución, escena (`Main.tscn`), `project.godot` y Input Map.
-- Estados `RUN`, `JUMP`, `FALL`, `GLIDE`, `CRASH` y `VICTORY`.
-- Mecánica de `glide` y cualquier mecánica, nivel, arte o animación nuevos.
+- Estados `RUN`, `JUMP`, `FALL`, `CRASH` y `VICTORY`.
+- Cualquier mecánica, nivel, arte o animación nuevos.
 - Cambios de velocidades, físicas o controles. Los valores son los de antes.
 
 ## Valores (sin cambios respecto a antes de esta fase)
