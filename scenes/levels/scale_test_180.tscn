@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" uid="uid://cxtju2u0rcpj3" path="res://scripts/player.gd" id="1_player"]
 [ext_resource type="Resource" path="res://data/tuning/player_tuning_180.tres" id="2_tuning"]
 [ext_resource type="Script" path="res://scripts/kill_zone.gd" id="3_kill"]
+[ext_resource type="Script" path="res://scripts/restart_on_input.gd" id="4_restart"]
 
 [sub_resource type="CapsuleShape2D" id="Capsule_player"]
 radius = 60.0
@@ -36,6 +37,7 @@ size = Vector2(180.0, 5400.0)
 size = Vector2(14400.0, 360.0)
 
 [node name="ScaleTest180" type="Node2D"]
+script = ExtResource("4_restart")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(360.0, -94.0)
